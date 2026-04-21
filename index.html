@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email List Growth Rate Calculator — Free AU Marketing Tool</title>
+  <meta name="description" content="Calculate your email list growth rate instantly. Free tool for Australian businesses.">
+  <meta property="og:title" content="Email List Growth Rate Calculator — Free AU Marketing Tool">
+  <meta property="og:description" content="Calculate your email list growth rate instantly. Free tool for Australian businesses.">
+  <meta property="og:type" content="website">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076137753154472"
+      crossorigin="anonymous"></script>
+  <!-- Vercel Analytics -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <!-- Vercel Speed Insights -->
+  <script>window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };</script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a2e;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    header .logo span { color: #6c63ff; }
+
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+
+    .hero .label {
+      display: inline-block;
+      background: rgba(108,99,255,0.25);
+      color: #a89cff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.8;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .calculator-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin: -28px auto 32px;
+    }
+
+    @media (max-width: 600px) {
+      .calculator-card { padding: 28px 20px; }
+    }
+
+    .field-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    label .hint {
+      font-weight: 400;
+      font-size: 0.83rem;
+      color: #888;
+      margin-left: 6px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0ee;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #1a1a2e;
+      outline: none;
+      transition: border-color 0.2s;
+      -moz-appearance: textfield;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+    input[type="number"]:focus { border-color: #6c63ff; }
+
+    .calc-btn {
+      width: 100%;
+      background: #6c63ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .calc-btn:hover { background: #554de0; }
+
+    #result {
+      display: none;
+      margin-top: 28px;
+      border-radius: 10px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    #result.positive {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+    }
+
+    #result.negative {
+      background: #fff7f7;
+      border: 2px solid #fca5a5;
+    }
+
+    #result.neutral {
+      background: #f5f3ff;
+      border: 2px solid #c4b5fd;
+    }
+
+    #result .rate-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    #result.positive .rate-label { color: #16a34a; }
+    #result.negative .rate-label { color: #dc2626; }
+    #result.neutral .rate-label { color: #7c3aed; }
+
+    #result .rate-value {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    #result.positive .rate-value { color: #16a34a; }
+    #result.negative .rate-value { color: #dc2626; }
+    #result.neutral .rate-value { color: #7c3aed; }
+
+    #result .rate-msg {
+      font-size: 0.95rem;
+      color: #444;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .benchmark-bar {
+      margin-top: 20px;
+      background: #eee;
+      border-radius: 8px;
+      height: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .benchmark-fill {
+      height: 100%;
+      border-radius: 8px;
+      transition: width 0.6s ease;
+    }
+
+    .benchmark-fill.positive { background: #22c55e; }
+    .benchmark-fill.negative { background: #ef4444; }
+    .benchmark-fill.neutral { background: #8b5cf6; }
+
+    .benchmark-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    .info-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .info-section { padding: 28px 20px; }
+    }
+
+    .info-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0f0f5;
+    }
+
+    .info-section p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 14px;
+    }
+
+    .info-section ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .info-section ul li {
+      font-size: 0.97rem;
+      color: #444;
+      margin-bottom: 8px;
+    }
+
+    .info-section ul li strong { color: #1a1a2e; }
+
+    .benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+
+    .benchmark-table th {
+      background: #f4f3ff;
+      color: #1a1a2e;
+      font-weight: 700;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid #ddd9ff;
+    }
+
+    .benchmark-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f5;
+      color: #444;
+    }
+
+    .benchmark-table tr:last-child td { border-bottom: none; }
+
+    /* Opt-in form */
+    .optin-card {
+      background: #f5f3ff;
+      border: 2px solid #c4b5fd;
+      border-radius: 12px;
+      padding: 36px 40px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .optin-card { padding: 24px 16px; }
+    }
+
+    .optin-card h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .optin-card p {
+      font-size: 0.93rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .optin-form input[type="email"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #c4b5fd;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #1a1a2e;
+      outline: none;
+      margin-bottom: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .optin-form input[type="email"]:focus { border-color: #6c63ff; }
+
+    .optin-form .consent-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      text-align: left;
+    }
+
+    .optin-form .consent-row input[type="checkbox"] {
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .optin-form .consent-row label {
+      font-size: 0.82rem;
+      color: #666;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    .optin-form .submit-btn {
+      width: 100%;
+      background: #6c63ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .optin-form .submit-btn:hover { background: #554de0; }
+
+    #optin-success {
+      display: none;
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-radius: 8px;
+      padding: 16px;
+      color: #16a34a;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+
+    /* $149 CTA */
+    .cta-box {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .cta-box p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .cta-box ul {
+      text-align: left;
+      display: inline-block;
+      margin: 12px 0 20px;
+      padding-left: 20px;
+    }
+
+    .cta-box ul li {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.93rem;
+      margin-bottom: 6px;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #6c63ff;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover { background: #554de0; }
+
+    .disclaimer {
+      font-size: 0.8rem;
+      color: #999;
+      text-align: center;
+      padding: 0 20px 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="https://marketing-ai-psi-nine.vercel.app/">Marketing<span>AI</span></a>
+</header>
+
+<div class="hero">
+  <div class="label">Free AU Marketing Tool</div>
+  <h1>Email List Growth Rate Calculator</h1>
+  <p>Find out if your email list is growing at a healthy rate — and how you compare to AU benchmarks.</p>
+</div>
+
+<div class="container">
+
+  <!-- Calculator -->
+  <div class="calculator-card">
+    <div class="field-group">
+      <label for="starting">Starting subscribers <span class="hint">at the beginning of the period</span></label>
+      <input type="number" id="starting" min="1" placeholder="e.g. 500">
+    </div>
+    <div class="field-group">
+      <label for="new-subs">New subscribers added <span class="hint">during the period</span></label>
+      <input type="number" id="new-subs" min="0" placeholder="e.g. 80">
+    </div>
+    <div class="field-group">
+      <label for="unsubs">Unsubscribes <span class="hint">during the period</span></label>
+      <input type="number" id="unsubs" min="0" placeholder="e.g. 20">
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate Growth Rate</button>
+
+    <div id="result">
+      <div class="rate-label" id="rate-label"></div>
+      <div class="rate-value" id="rate-value"></div>
+      <div class="rate-msg" id="rate-msg"></div>
+      <div class="benchmark-bar">
+        <div class="benchmark-fill" id="benchmark-fill"></div>
+      </div>
+      <div class="benchmark-labels">
+        <span>0% (flat)</span>
+        <span>2&#8211;5% (AU healthy)</span>
+        <span>10%+</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info section -->
+  <div class="info-section">
+    <h2>What Is Email List Growth Rate?</h2>
+    <p>Your email list growth rate measures how fast your subscriber base is expanding after accounting for unsubscribes. A growing list means your content and lead magnets are attracting new contacts faster than you are losing them.</p>
+
+    <p><strong>The formula:</strong></p>
+    <p style="font-family: monospace; background: #f4f3ff; padding: 10px 16px; border-radius: 6px; font-size: 0.95rem;">
+      Growth Rate = ((New Subscribers &#8722; Unsubscribes) &#247; Starting Subscribers) &#215; 100
+    </p>
+
+    <h2 style="margin-top: 28px;">AU Benchmarks by Growth Stage</h2>
+    <p>There is no single right growth rate — it depends on your business model and how actively you are promoting your list. That said, here are typical ranges for Australian SMBs:</p>
+
+    <table class="benchmark-table">
+      <thead>
+        <tr>
+          <th>Scenario</th>
+          <th>Monthly Growth Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Healthy growth (active list building)</td>
+          <td><strong>2&#8211;5%</strong></td>
+        </tr>
+        <tr>
+          <td>Moderate growth (some promotion)</td>
+          <td><strong>1&#8211;2%</strong></td>
+        </tr>
+        <tr>
+          <td>Flat (maintenance mode)</td>
+          <td><strong>0&#8211;1%</strong></td>
+        </tr>
+        <tr>
+          <td>Negative growth (list decay)</td>
+          <td><strong>&lt; 0%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>If your list is shrinking month-on-month, that is a signal to audit your content relevance, opt-in sources, or sending frequency before your list becomes too small to market to effectively.</p>
+
+    <h2 style="margin-top: 28px;">How to Improve Your List Growth Rate</h2>
+    <ul>
+      <li><strong>Add a lead magnet:</strong> A free resource (checklist, guide, calculator) in exchange for an email address consistently outperforms a generic newsletter subscribe prompt.</li>
+      <li><strong>Reduce unsubscribes:</strong> Segment your list and send content relevant to each segment. Irrelevant email is the number one reason people unsubscribe.</li>
+      <li><strong>Promote your list actively:</strong> Your website, social profiles, and email signature should all include a clear opt-in prompt.</li>
+      <li><strong>Check your opt-in sources:</strong> Which channels are sending you subscribers? Double down on what is working and cut what is not.</li>
+      <li><strong>Review your welcome sequence:</strong> A strong welcome email series reduces early churn and sets expectations for new subscribers from day one.</li>
+    </ul>
+
+    <p>Australian businesses that consistently grow their list at 2&#8211;5% per month double their subscriber base roughly every 15&#8211;36 months without any paid advertising — purely through organic content and system-driven opt-ins.</p>
+  </div>
+
+  <!-- Email opt-in -->
+  <div class="optin-card">
+    <h2>Get AU Email List Benchmarks by Industry Emailed to You</h2>
+    <p>We will send you open rate, growth rate, and unsubscribe benchmarks broken down by AU industry — so you know exactly where you stand.</p>
+    <form class="optin-form" id="optin-form" onsubmit="handleOptIn(event)">
+      <input type="email" id="optin-email" placeholder="your@email.com" required>
+      <div class="consent-row">
+        <input type="checkbox" id="consent" required>
+        <label for="consent">I consent to receiving marketing emails from MarketingAI. I can unsubscribe at any time. (Required under Australian Spam Act 2003)</label>
+      </div>
+      <button type="submit" class="submit-btn">Send Me the Benchmarks &#8594;</button>
+    </form>
+    <div id="optin-success">You are in! Check your inbox for the AU email benchmarks.</div>
+  </div>
+
+  <!-- $149 CTA -->
+  <div class="cta-box">
+    <h2>Want a Done-With-You Marketing System? MarketingAI &#8212; $149 once-off setup.</h2>
+    <div class="price-tag">$149 AUD &#8212; once-off</div>
+    <ul>
+      <li><strong>AI Content Engine:</strong> 30-day content calendar in your voice, ready to post</li>
+      <li><strong>Outbound Lead Sequence:</strong> personalised outreach templates for your client profile</li>
+      <li><strong>Email Nurture Sequence:</strong> automated follow-up emails for enquiries and past clients</li>
+    </ul>
+    <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" class="cta-btn">Get Started for $149 &#8594;</a>
+  </div>
+
+  <div class="disclaimer">
+    Setup facilitates but does not guarantee specific outcomes. Results depend on offer quality, market, and execution consistency.
+  </div>
+</div>
+
+<footer>
+  <p>&#169; 2026 MarketingAI &#183; <a href="https://marketing-ai-psi-nine.vercel.app/">marketing-ai-psi-nine.vercel.app</a></p>
+</footer>
+
+<script>
+  function calculate() {
+    var starting = parseFloat(document.getElementById('starting').value);
+    var newSubs = parseFloat(document.getElementById('new-subs').value);
+    var unsubs = parseFloat(document.getElementById('unsubs').value);
+
+    if (isNaN(starting) || starting <= 0) {
+      alert('Please enter a valid starting subscriber count (must be greater than 0).');
+      return;
+    }
+    if (isNaN(newSubs) || newSubs < 0) {
+      alert('Please enter a valid number of new subscribers (0 or more).');
+      return;
+    }
+    if (isNaN(unsubs) || unsubs < 0) {
+      alert('Please enter a valid number of unsubscribes (0 or more).');
+      return;
+    }
+
+    var rate = ((newSubs - unsubs) / starting) * 100;
+    var rateRounded = Math.round(rate * 10) / 10;
+
+    var resultEl = document.getElementById('result');
+    var labelEl = document.getElementById('rate-label');
+    var valueEl = document.getElementById('rate-value');
+    var msgEl = document.getElementById('rate-msg');
+    var fillEl = document.getElementById('benchmark-fill');
+
+    resultEl.className = '';
+    fillEl.className = 'benchmark-fill';
+
+    var cssClass, label, msg, fillPct;
+
+    if (rate < 0) {
+      cssClass = 'negative';
+      label = 'List Health Warning — Negative Growth';
+      msg = 'Your list is shrinking. More subscribers are leaving than joining. Audit your content relevance and opt-in sources urgently. AU healthy benchmark: 2–5% growth per period.';
+      fillPct = 0;
+    } else if (rate === 0) {
+      cssClass = 'neutral';
+      label = 'Flat Growth';
+      msg = 'Your list is holding steady but not growing. AU healthy benchmark is 2–5% per period. Consider adding a lead magnet or promoting your opt-in more actively.';
+      fillPct = 5;
+    } else if (rate < 1) {
+      cssClass = 'neutral';
+      label = 'Below Benchmark';
+      msg = 'Your growth rate of ' + rateRounded + '% is below the AU healthy range of 2–5%. Small improvements to your opt-in offer or promotion channels could make a significant difference.';
+      fillPct = 15;
+    } else if (rate < 2) {
+      cssClass = 'neutral';
+      label = 'Moderate Growth';
+      msg = 'Your growth rate of ' + rateRounded + '% is modest but positive. The AU healthy benchmark is 2–5% — you are close. Focus on reducing unsubscribes and diversifying your opt-in sources.';
+      fillPct = 30;
+    } else if (rate <= 5) {
+      cssClass = 'positive';
+      label = 'Healthy Growth — On Benchmark';
+      msg = 'Your growth rate of ' + rateRounded + '% is within the AU healthy range of 2–5%. Your list-building strategy is working. Keep it up and look for ways to sustain this pace.';
+      fillPct = Math.min(65, 35 + (rate - 2) * 10);
+    } else if (rate <= 10) {
+      cssClass = 'positive';
+      label = 'Strong Growth — Above Benchmark';
+      msg = 'Your growth rate of ' + rateRounded + '% is above the AU average. This is strong performance — make sure your email content quality keeps pace with subscriber volume to maintain engagement.';
+      fillPct = Math.min(85, 65 + (rate - 5) * 4);
+    } else {
+      cssClass = 'positive';
+      label = 'Exceptional Growth';
+      msg = rateRounded + '% growth is exceptional. At this rate, focus on list quality: ensure new subscribers are genuinely engaged and your content is converting. High growth can mask low engagement if left unchecked.';
+      fillPct = 95;
+    }
+
+    resultEl.classList.add(cssClass);
+    fillEl.classList.add(cssClass);
+    labelEl.textContent = label;
+    valueEl.textContent = (rate >= 0 ? '+' : '') + rateRounded + '%';
+    msgEl.textContent = msg;
+    fillEl.style.width = fillPct + '%';
+    resultEl.style.display = 'block';
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function handleOptIn(e) {
+    e.preventDefault();
+    var email = document.getElementById('optin-email').value;
+    var consent = document.getElementById('consent').checked;
+    if (!consent) return;
+
+    var formData = new FormData();
+    formData.append('fields[email]', email);
+
+    fetch('https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe', {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    }).then(function() {
+      document.getElementById('optin-form').style.display = 'none';
+      document.getElementById('optin-success').style.display = 'block';
+    }).catch(function() {
+      document.getElementById('optin-form').style.display = 'none';
+      document.getElementById('optin-success').style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>
