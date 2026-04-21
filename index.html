@@ -24,7 +24,7 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #f8f9fa;
       color: #1a1a2e;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     header {
@@ -52,656 +52,650 @@
       text-align: center;
     }
 
-    .hero .label {
-      display: inline-block;
-      background: rgba(108,99,255,0.25);
-      color: #a89cff;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-
     .hero h1 {
-      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       letter-spacing: -0.5px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .hero p {
-      font-size: 1rem;
-      opacity: 0.8;
+      font-size: 1.1rem;
+      opacity: 0.85;
       max-width: 560px;
       margin: 0 auto;
     }
 
     .container {
-      max-width: 760px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    .calculator-card {
+    .card {
       background: #fff;
       border-radius: 12px;
-      padding: 40px 48px;
+      padding: 32px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
       margin: -28px auto 32px;
     }
 
-    @media (max-width: 600px) {
-      .calculator-card { padding: 28px 20px; }
-    }
-
-    .field-group {
-      margin-bottom: 22px;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      font-size: 0.95rem;
+    .card h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
       color: #1a1a2e;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1a1a2e;
+    }
+
+    .input-group .hint {
+      font-size: 0.8rem;
+      color: #888;
       margin-bottom: 6px;
     }
 
-    label .hint {
-      font-weight: 400;
-      font-size: 0.83rem;
-      color: #888;
-      margin-left: 6px;
-    }
-
-    input[type="number"] {
+    .input-group input[type="number"] {
       width: 100%;
       padding: 12px 16px;
-      border: 2px solid #e0e0ee;
+      border: 2px solid #e0e0e0;
       border-radius: 8px;
       font-size: 1rem;
-      color: #1a1a2e;
+      font-family: inherit;
       outline: none;
       transition: border-color 0.2s;
-      -moz-appearance: textfield;
+      color: #1a1a2e;
     }
 
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
-
-    input[type="number"]:focus { border-color: #6c63ff; }
+    .input-group input[type="number"]:focus { border-color: #6c63ff; }
 
     .calc-btn {
       width: 100%;
+      padding: 14px;
       background: #6c63ff;
       color: #fff;
       border: none;
       border-radius: 8px;
-      padding: 14px;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
       transition: background 0.2s;
       margin-top: 8px;
     }
 
-    .calc-btn:hover { background: #554de0; }
+    .calc-btn:hover { background: #574fd6; }
 
-    #result {
+    .result-box {
       display: none;
-      margin-top: 28px;
+      margin-top: 24px;
       border-radius: 10px;
-      padding: 28px 24px;
+      padding: 24px;
       text-align: center;
     }
 
-    #result.positive {
+    .result-box.positive {
       background: #f0fdf4;
-      border: 2px solid #86efac;
+      border: 2px solid #10b981;
     }
 
-    #result.negative {
-      background: #fff7f7;
-      border: 2px solid #fca5a5;
+    .result-box.negative {
+      background: #fef2f2;
+      border: 2px solid #ef4444;
     }
 
-    #result.neutral {
-      background: #f5f3ff;
-      border: 2px solid #c4b5fd;
+    .result-box.neutral {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
     }
 
-    #result .rate-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    #result.positive .rate-label { color: #16a34a; }
-    #result.negative .rate-label { color: #dc2626; }
-    #result.neutral .rate-label { color: #7c3aed; }
-
-    #result .rate-value {
+    .result-rate {
       font-size: 3rem;
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 10px;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
-    #result.positive .rate-value { color: #16a34a; }
-    #result.negative .rate-value { color: #dc2626; }
-    #result.neutral .rate-value { color: #7c3aed; }
+    .result-box.positive .result-rate { color: #065f46; }
+    .result-box.negative .result-rate { color: #991b1b; }
+    .result-box.neutral .result-rate { color: #92400e; }
 
-    #result .rate-msg {
-      font-size: 0.95rem;
+    .result-label {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .result-box.positive .result-label { color: #065f46; }
+    .result-box.negative .result-label { color: #991b1b; }
+    .result-box.neutral .result-label { color: #92400e; }
+
+    .result-detail {
+      font-size: 0.9rem;
       color: #444;
-      max-width: 440px;
-      margin: 0 auto;
     }
 
     .benchmark-bar {
-      margin-top: 20px;
-      background: #eee;
-      border-radius: 8px;
-      height: 10px;
-      overflow: hidden;
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin: 0 auto 32px;
+    }
+
+    .benchmark-bar h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .benchmark-scale {
       position: relative;
+      height: 12px;
+      background: linear-gradient(to right, #ef4444 0%, #f59e0b 20%, #10b981 40%, #10b981 80%, #f59e0b 90%, #ef4444 100%);
+      border-radius: 6px;
+      margin-bottom: 8px;
     }
-
-    .benchmark-fill {
-      height: 100%;
-      border-radius: 8px;
-      transition: width 0.6s ease;
-    }
-
-    .benchmark-fill.positive { background: #22c55e; }
-    .benchmark-fill.negative { background: #ef4444; }
-    .benchmark-fill.neutral { background: #8b5cf6; }
 
     .benchmark-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
-      color: #999;
-      margin-top: 4px;
+      font-size: 0.78rem;
+      color: #666;
+      margin-bottom: 16px;
     }
 
-    .info-section {
+    .benchmark-pointer {
+      display: none;
+      position: relative;
+      height: 0;
+    }
+
+    .benchmark-arrow {
+      position: absolute;
+      top: -20px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid #1a1a2e;
+    }
+
+    .benchmark-rows {
+      border-top: 1px solid #f0f0f0;
+      padding-top: 16px;
+    }
+
+    .benchmark-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 0.88rem;
+    }
+
+    .benchmark-row:last-child { border-bottom: none; }
+
+    .bm-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .bm-dot.red { background: #ef4444; }
+    .bm-dot.amber { background: #f59e0b; }
+    .bm-dot.green { background: #10b981; }
+
+    .bm-label { flex: 1; color: #1a1a2e; font-weight: 600; }
+    .bm-range { color: #888; }
+
+    .optin-card {
       background: #fff;
       border-radius: 12px;
-      padding: 36px 48px;
+      padding: 28px 32px;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      margin-bottom: 32px;
-    }
-
-    @media (max-width: 600px) {
-      .info-section { padding: 28px 20px; }
-    }
-
-    .info-section h2 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #f0f0f5;
-    }
-
-    .info-section p {
-      font-size: 1rem;
-      color: #444;
-      margin-bottom: 14px;
-    }
-
-    .info-section ul {
-      padding-left: 20px;
-      margin-bottom: 14px;
-    }
-
-    .info-section ul li {
-      font-size: 0.97rem;
-      color: #444;
-      margin-bottom: 8px;
-    }
-
-    .info-section ul li strong { color: #1a1a2e; }
-
-    .benchmark-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 0.9rem;
-    }
-
-    .benchmark-table th {
-      background: #f4f3ff;
-      color: #1a1a2e;
-      font-weight: 700;
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: 2px solid #ddd9ff;
-    }
-
-    .benchmark-table td {
-      padding: 10px 14px;
-      border-bottom: 1px solid #f0f0f5;
-      color: #444;
-    }
-
-    .benchmark-table tr:last-child td { border-bottom: none; }
-
-    /* Opt-in form */
-    .optin-card {
-      background: #f5f3ff;
-      border: 2px solid #c4b5fd;
-      border-radius: 12px;
-      padding: 36px 40px;
-      margin-bottom: 32px;
+      margin: 0 auto 32px;
       text-align: center;
     }
 
-    @media (max-width: 600px) {
-      .optin-card { padding: 24px 16px; }
-    }
-
     .optin-card h2 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #1a1a2e;
+      font-size: 1.2rem;
+      font-weight: 700;
       margin-bottom: 8px;
     }
 
     .optin-card p {
-      font-size: 0.93rem;
-      color: #555;
+      color: #666;
+      font-size: 0.95rem;
       margin-bottom: 20px;
     }
 
+    .optin-form .input-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .optin-form input[type="email"] {
-      width: 100%;
+      flex: 1 1 220px;
       padding: 12px 16px;
-      border: 2px solid #c4b5fd;
+      border: 2px solid #e0e0e0;
       border-radius: 8px;
-      font-size: 1rem;
-      color: #1a1a2e;
+      font-size: 0.95rem;
       outline: none;
-      margin-bottom: 10px;
       transition: border-color 0.2s;
     }
 
     .optin-form input[type="email"]:focus { border-color: #6c63ff; }
 
-    .optin-form .consent-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 14px;
-      text-align: left;
-    }
-
-    .optin-form .consent-row input[type="checkbox"] {
-      margin-top: 3px;
-      flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-    }
-
-    .optin-form .consent-row label {
-      font-size: 0.82rem;
-      color: #666;
-      font-weight: 400;
-      cursor: pointer;
-    }
-
     .optin-form .submit-btn {
-      width: 100%;
+      flex: 0 0 auto;
+      padding: 12px 20px;
       background: #6c63ff;
       color: #fff;
       border: none;
       border-radius: 8px;
-      padding: 13px;
-      font-size: 1rem;
       font-weight: 700;
+      font-size: 0.95rem;
       cursor: pointer;
       transition: background 0.2s;
     }
 
-    .optin-form .submit-btn:hover { background: #554de0; }
+    .optin-form .submit-btn:hover { background: #574fd6; }
 
-    #optin-success {
-      display: none;
-      background: #f0fdf4;
-      border: 2px solid #86efac;
-      border-radius: 8px;
-      padding: 16px;
-      color: #16a34a;
-      font-weight: 600;
-      font-size: 0.95rem;
+    .consent-row {
       margin-top: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      text-align: left;
     }
 
-    /* $149 CTA */
-    .cta-box {
+    .consent-row input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: #6c63ff;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .consent-row label {
+      font-size: 0.82rem;
+      color: #666;
+    }
+
+    .optin-success {
+      display: none;
+      color: #065f46;
+      background: #d1fae5;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+
+    .optin-success.show { display: block; }
+
+    .optin-error {
+      display: none;
+      color: #991b1b;
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
+
+    .optin-error.show { display: block; }
+
+    .cta-card {
       background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
-      color: #fff;
       border-radius: 12px;
-      padding: 36px 32px;
-      margin-bottom: 32px;
+      padding: 32px;
+      color: #fff;
       text-align: center;
+      margin: 0 auto 40px;
     }
 
-    .cta-box h2 {
+    .cta-card h2 {
       font-size: 1.3rem;
-      font-weight: 800;
-      color: #fff;
+      font-weight: 700;
       margin-bottom: 10px;
     }
 
-    .cta-box p {
-      color: rgba(255,255,255,0.8);
+    .cta-card p {
+      opacity: 0.85;
+      margin-bottom: 24px;
       font-size: 0.95rem;
-      margin-bottom: 6px;
     }
 
-    .cta-box ul {
-      text-align: left;
-      display: inline-block;
-      margin: 12px 0 20px;
-      padding-left: 20px;
+    .cta-card .price-tag {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 8px;
     }
 
-    .cta-box ul li {
-      color: rgba(255,255,255,0.9);
-      font-size: 0.93rem;
-      margin-bottom: 6px;
-    }
-
-    .price-tag {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      font-weight: 700;
+    .cta-card .price-tag span {
       font-size: 1rem;
-      padding: 4px 14px;
-      border-radius: 20px;
-      margin-bottom: 18px;
+      font-weight: 400;
+      opacity: 0.7;
     }
 
     .cta-btn {
       display: inline-block;
+      padding: 14px 32px;
       background: #6c63ff;
       color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 14px 32px;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.2s;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.1s;
     }
 
-    .cta-btn:hover { background: #554de0; }
+    .cta-btn:hover { background: #574fd6; transform: translateY(-1px); }
 
-    .disclaimer {
-      font-size: 0.8rem;
-      color: #999;
-      text-align: center;
-      padding: 0 20px 32px;
-      max-width: 600px;
-      margin: 0 auto;
+    .cta-card .disclaimer {
+      font-size: 0.78rem;
+      opacity: 0.55;
+      margin-top: 14px;
+    }
+
+    .explainer {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      margin: 0 auto 32px;
+    }
+
+    .explainer h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .explainer p { color: #444; margin-bottom: 12px; font-size: 0.95rem; }
+    .explainer p:last-child { margin-bottom: 0; }
+
+    .formula-box {
+      background: #f3f1ff;
+      border-left: 4px solid #6c63ff;
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: #1a1a2e;
     }
 
     footer {
       background: #1a1a2e;
       color: rgba(255,255,255,0.5);
       text-align: center;
-      padding: 20px;
-      font-size: 0.85rem;
+      padding: 24px;
+      font-size: 0.82rem;
     }
 
     footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 500px) {
+      .card, .optin-card, .cta-card, .explainer, .benchmark-bar { border-radius: 0; }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <a class="logo" href="https://marketing-ai-psi-nine.vercel.app/">Marketing<span>AI</span></a>
+  <a href="https://marketing-ai-psi-nine.vercel.app/" class="logo">Marketing<span>AI</span></a>
 </header>
 
 <div class="hero">
-  <div class="label">Free AU Marketing Tool</div>
   <h1>Email List Growth Rate Calculator</h1>
-  <p>Find out if your email list is growing at a healthy rate — and how you compare to AU benchmarks.</p>
+  <p>Enter your subscriber numbers and instantly calculate your email list growth rate — with AU benchmarks to see how you compare.</p>
 </div>
 
 <div class="container">
 
-  <!-- Calculator -->
-  <div class="calculator-card">
-    <div class="field-group">
-      <label for="starting">Starting subscribers <span class="hint">at the beginning of the period</span></label>
-      <input type="number" id="starting" min="1" placeholder="e.g. 500">
+  <!-- Calculator Card -->
+  <div class="card">
+    <h2>Calculate Your List Growth Rate</h2>
+
+    <div class="input-group">
+      <label for="starting-subs">Starting subscribers</label>
+      <div class="hint">Total subscribers at the start of the period</div>
+      <input type="number" id="starting-subs" placeholder="e.g. 1000" min="1" oninput="clearResult()">
     </div>
-    <div class="field-group">
-      <label for="new-subs">New subscribers added <span class="hint">during the period</span></label>
-      <input type="number" id="new-subs" min="0" placeholder="e.g. 80">
+
+    <div class="input-group">
+      <label for="new-subs">New subscribers added</label>
+      <div class="hint">Subscribers who joined during this period</div>
+      <input type="number" id="new-subs" placeholder="e.g. 80" min="0" oninput="clearResult()">
     </div>
-    <div class="field-group">
-      <label for="unsubs">Unsubscribes <span class="hint">during the period</span></label>
-      <input type="number" id="unsubs" min="0" placeholder="e.g. 20">
+
+    <div class="input-group">
+      <label for="unsubs">Unsubscribes</label>
+      <div class="hint">Subscribers who opted out during this period</div>
+      <input type="number" id="unsubs" placeholder="e.g. 20" min="0" oninput="clearResult()">
     </div>
+
     <button class="calc-btn" onclick="calculate()">Calculate Growth Rate</button>
 
-    <div id="result">
-      <div class="rate-label" id="rate-label"></div>
-      <div class="rate-value" id="rate-value"></div>
-      <div class="rate-msg" id="rate-msg"></div>
-      <div class="benchmark-bar">
-        <div class="benchmark-fill" id="benchmark-fill"></div>
-      </div>
-      <div class="benchmark-labels">
-        <span>0% (flat)</span>
-        <span>2&#8211;5% (AU healthy)</span>
-        <span>10%+</span>
-      </div>
+    <div class="result-box" id="result-box">
+      <div class="result-rate" id="result-rate"></div>
+      <div class="result-label" id="result-label"></div>
+      <div class="result-detail" id="result-detail"></div>
     </div>
   </div>
 
-  <!-- Info section -->
-  <div class="info-section">
-    <h2>What Is Email List Growth Rate?</h2>
-    <p>Your email list growth rate measures how fast your subscriber base is expanding after accounting for unsubscribes. A growing list means your content and lead magnets are attracting new contacts faster than you are losing them.</p>
-
-    <p><strong>The formula:</strong></p>
-    <p style="font-family: monospace; background: #f4f3ff; padding: 10px 16px; border-radius: 6px; font-size: 0.95rem;">
-      Growth Rate = ((New Subscribers &#8722; Unsubscribes) &#247; Starting Subscribers) &#215; 100
-    </p>
-
-    <h2 style="margin-top: 28px;">AU Benchmarks by Growth Stage</h2>
-    <p>There is no single right growth rate — it depends on your business model and how actively you are promoting your list. That said, here are typical ranges for Australian SMBs:</p>
-
-    <table class="benchmark-table">
-      <thead>
-        <tr>
-          <th>Scenario</th>
-          <th>Monthly Growth Rate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Healthy growth (active list building)</td>
-          <td><strong>2&#8211;5%</strong></td>
-        </tr>
-        <tr>
-          <td>Moderate growth (some promotion)</td>
-          <td><strong>1&#8211;2%</strong></td>
-        </tr>
-        <tr>
-          <td>Flat (maintenance mode)</td>
-          <td><strong>0&#8211;1%</strong></td>
-        </tr>
-        <tr>
-          <td>Negative growth (list decay)</td>
-          <td><strong>&lt; 0%</strong></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p>If your list is shrinking month-on-month, that is a signal to audit your content relevance, opt-in sources, or sending frequency before your list becomes too small to market to effectively.</p>
-
-    <h2 style="margin-top: 28px;">How to Improve Your List Growth Rate</h2>
-    <ul>
-      <li><strong>Add a lead magnet:</strong> A free resource (checklist, guide, calculator) in exchange for an email address consistently outperforms a generic newsletter subscribe prompt.</li>
-      <li><strong>Reduce unsubscribes:</strong> Segment your list and send content relevant to each segment. Irrelevant email is the number one reason people unsubscribe.</li>
-      <li><strong>Promote your list actively:</strong> Your website, social profiles, and email signature should all include a clear opt-in prompt.</li>
-      <li><strong>Check your opt-in sources:</strong> Which channels are sending you subscribers? Double down on what is working and cut what is not.</li>
-      <li><strong>Review your welcome sequence:</strong> A strong welcome email series reduces early churn and sets expectations for new subscribers from day one.</li>
-    </ul>
-
-    <p>Australian businesses that consistently grow their list at 2&#8211;5% per month double their subscriber base roughly every 15&#8211;36 months without any paid advertising — purely through organic content and system-driven opt-ins.</p>
+  <!-- AU Benchmarks -->
+  <div class="benchmark-bar">
+    <h2>AU Email List Growth Rate Benchmarks</h2>
+    <div class="benchmark-scale"></div>
+    <div class="benchmark-labels">
+      <span>Shrinking</span>
+      <span>Slow</span>
+      <span>Healthy (2–5%)</span>
+      <span>Strong</span>
+      <span>Exceptional</span>
+    </div>
+    <div class="benchmark-rows">
+      <div class="benchmark-row">
+        <div class="bm-dot red"></div>
+        <span class="bm-label">Negative growth</span>
+        <span class="bm-range">Below 0%</span>
+      </div>
+      <div class="benchmark-row">
+        <div class="bm-dot amber"></div>
+        <span class="bm-label">Slow growth</span>
+        <span class="bm-range">0% – 2%</span>
+      </div>
+      <div class="benchmark-row">
+        <div class="bm-dot green"></div>
+        <span class="bm-label">Healthy growth (AU benchmark)</span>
+        <span class="bm-range">2% – 5%</span>
+      </div>
+      <div class="benchmark-row">
+        <div class="bm-dot green"></div>
+        <span class="bm-label">Strong growth</span>
+        <span class="bm-range">5% – 10%</span>
+      </div>
+      <div class="benchmark-row">
+        <div class="bm-dot green"></div>
+        <span class="bm-label">Exceptional growth</span>
+        <span class="bm-range">Above 10%</span>
+      </div>
+    </div>
+    <p style="font-size:0.8rem;color:#888;margin-top:14px;">Benchmarks are indicative for Australian SMBs. Industry, list size, and growth stage all affect what's healthy for your business.</p>
   </div>
 
   <!-- Email opt-in -->
   <div class="optin-card">
     <h2>Get AU Email List Benchmarks by Industry Emailed to You</h2>
-    <p>We will send you open rate, growth rate, and unsubscribe benchmarks broken down by AU industry — so you know exactly where you stand.</p>
+    <p>We'll send you a breakdown of email list growth rates across key Australian industries — so you know exactly how your list compares to businesses like yours.</p>
+
     <form class="optin-form" id="optin-form" onsubmit="handleOptIn(event)">
-      <input type="email" id="optin-email" placeholder="your@email.com" required>
+      <div class="input-row">
+        <input type="email" id="optin-email" placeholder="your@email.com" required>
+        <button type="submit" class="submit-btn">Send Me the Benchmarks</button>
+      </div>
       <div class="consent-row">
         <input type="checkbox" id="consent" required>
-        <label for="consent">I consent to receiving marketing emails from MarketingAI. I can unsubscribe at any time. (Required under Australian Spam Act 2003)</label>
+        <label for="consent">I agree to receive marketing emails from MarketingAI. You can unsubscribe at any time. We never share your data.</label>
       </div>
-      <button type="submit" class="submit-btn">Send Me the Benchmarks &#8594;</button>
+      <div class="optin-error" id="optin-error">Please check the consent box to continue.</div>
     </form>
-    <div id="optin-success">You are in! Check your inbox for the AU email benchmarks.</div>
+
+    <div class="optin-success" id="optin-success">
+      Thanks! AU email benchmark data is on its way to your inbox.
+    </div>
   </div>
 
   <!-- $149 CTA -->
-  <div class="cta-box">
-    <h2>Want a Done-With-You Marketing System? MarketingAI &#8212; $149 once-off setup.</h2>
-    <div class="price-tag">$149 AUD &#8212; once-off</div>
-    <ul>
-      <li><strong>AI Content Engine:</strong> 30-day content calendar in your voice, ready to post</li>
-      <li><strong>Outbound Lead Sequence:</strong> personalised outreach templates for your client profile</li>
-      <li><strong>Email Nurture Sequence:</strong> automated follow-up emails for enquiries and past clients</li>
-    </ul>
-    <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" class="cta-btn">Get Started for $149 &#8594;</a>
+  <div class="cta-card">
+    <h2>Want a Done-With-You Marketing System? MarketingAI — $149 once-off setup.</h2>
+    <p>We build the full email marketing foundation for your Australian business: list setup, welcome sequence, monthly content calendar, and ongoing strategy — all done with you in a single session.</p>
+    <div class="price-tag">$149 AUD <span>once-off setup</span></div>
+    <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" class="cta-btn">See What's Included →</a>
+    <div class="disclaimer">Setup outcomes vary. No results guaranteed.</div>
   </div>
 
-  <div class="disclaimer">
-    Setup facilitates but does not guarantee specific outcomes. Results depend on offer quality, market, and execution consistency.
+  <!-- Explainer copy -->
+  <div class="explainer">
+    <h2>What Is Email List Growth Rate?</h2>
+    <p>Your email list growth rate measures how quickly your subscriber base is expanding (or shrinking) over a given period. It's one of the most important health metrics for any email marketing program.</p>
+
+    <div class="formula-box">
+      Growth Rate (%) = ((New Subscribers − Unsubscribes) ÷ Starting Subscribers) × 100
+    </div>
+
+    <p>For example: if you started the month with 1,000 subscribers, gained 80 new ones, and lost 20 to unsubscribes, your net growth is 60 — giving you a growth rate of 6%.</p>
+
+    <p><strong>Why it matters for Australian businesses:</strong> A healthy email list compounds over time. Even a modest 2–3% monthly growth rate means your list roughly doubles every 2–3 years — without any ad spend. For service businesses in Australia, your email list is often the most cost-effective marketing channel you own.</p>
+
+    <p><strong>Watch for negative growth.</strong> If unsubscribes consistently outpace new signups, it usually signals a relevance problem: your content isn't landing with your audience, your acquisition source is poorly targeted, or your send frequency is too high. Catching this early — with a metric like growth rate — lets you fix it before it compounds.</p>
+
+    <p><strong>Monthly is the right cadence.</strong> Tracking growth rate monthly gives you a clear signal without the noise of weekly fluctuations. Compare month-over-month to spot trends, and compare against the AU benchmark range of 2–5% to understand where you sit.</p>
   </div>
+
 </div>
 
 <footer>
-  <p>&#169; 2026 MarketingAI &#183; <a href="https://marketing-ai-psi-nine.vercel.app/">marketing-ai-psi-nine.vercel.app</a></p>
+  <p>&copy; 2026 MarketingAI — Australian businesses only. Results are indicative. Marketing outcomes are not guaranteed.</p>
 </footer>
 
 <script>
+  function clearResult() {
+    document.getElementById('result-box').style.display = 'none';
+  }
+
   function calculate() {
-    var starting = parseFloat(document.getElementById('starting').value);
-    var newSubs = parseFloat(document.getElementById('new-subs').value);
-    var unsubs = parseFloat(document.getElementById('unsubs').value);
+    var startingRaw = document.getElementById('starting-subs').value.trim();
+    var newRaw = document.getElementById('new-subs').value.trim();
+    var unsubRaw = document.getElementById('unsubs').value.trim();
 
-    if (isNaN(starting) || starting <= 0) {
-      alert('Please enter a valid starting subscriber count (must be greater than 0).');
-      return;
-    }
-    if (isNaN(newSubs) || newSubs < 0) {
-      alert('Please enter a valid number of new subscribers (0 or more).');
-      return;
-    }
-    if (isNaN(unsubs) || unsubs < 0) {
-      alert('Please enter a valid number of unsubscribes (0 or more).');
+    if (startingRaw === '' || newRaw === '' || unsubRaw === '') {
+      alert('Please fill in all three fields.');
       return;
     }
 
-    var rate = ((newSubs - unsubs) / starting) * 100;
-    var rateRounded = Math.round(rate * 10) / 10;
+    var starting = parseFloat(startingRaw);
+    var newSubs = parseFloat(newRaw);
+    var unsubs = parseFloat(unsubRaw);
 
-    var resultEl = document.getElementById('result');
-    var labelEl = document.getElementById('rate-label');
-    var valueEl = document.getElementById('rate-value');
-    var msgEl = document.getElementById('rate-msg');
-    var fillEl = document.getElementById('benchmark-fill');
+    if (starting <= 0) {
+      alert('Starting subscribers must be greater than zero.');
+      return;
+    }
 
-    resultEl.className = '';
-    fillEl.className = 'benchmark-fill';
+    var net = newSubs - unsubs;
+    var rate = (net / starting) * 100;
+    var rateDisplay = rate.toFixed(2) + '%';
 
-    var cssClass, label, msg, fillPct;
+    var box = document.getElementById('result-box');
+    var rateEl = document.getElementById('result-rate');
+    var labelEl = document.getElementById('result-label');
+    var detailEl = document.getElementById('result-detail');
+
+    rateEl.textContent = (rate >= 0 ? '+' : '') + rateDisplay;
+
+    box.className = 'result-box';
 
     if (rate < 0) {
-      cssClass = 'negative';
-      label = 'List Health Warning — Negative Growth';
-      msg = 'Your list is shrinking. More subscribers are leaving than joining. Audit your content relevance and opt-in sources urgently. AU healthy benchmark: 2–5% growth per period.';
-      fillPct = 0;
+      box.classList.add('negative');
+      labelEl.textContent = 'List Health Warning — Your list is shrinking';
+      detailEl.textContent = 'You lost more subscribers than you gained this period. Check your unsubscribe reasons, content relevance, and acquisition sources. AU benchmark is +2% to +5% per month.';
     } else if (rate === 0) {
-      cssClass = 'neutral';
-      label = 'Flat Growth';
-      msg = 'Your list is holding steady but not growing. AU healthy benchmark is 2–5% per period. Consider adding a lead magnet or promoting your opt-in more actively.';
-      fillPct = 5;
-    } else if (rate < 1) {
-      cssClass = 'neutral';
-      label = 'Below Benchmark';
-      msg = 'Your growth rate of ' + rateRounded + '% is below the AU healthy range of 2–5%. Small improvements to your opt-in offer or promotion channels could make a significant difference.';
-      fillPct = 15;
+      box.classList.add('neutral');
+      labelEl.textContent = 'Flat growth — new and lost subscribers are equal';
+      detailEl.textContent = 'Your list isn\'t growing or shrinking. Focus on increasing new signups or reducing unsubscribes to hit the AU benchmark of 2–5% monthly growth.';
     } else if (rate < 2) {
-      cssClass = 'neutral';
-      label = 'Moderate Growth';
-      msg = 'Your growth rate of ' + rateRounded + '% is modest but positive. The AU healthy benchmark is 2–5% — you are close. Focus on reducing unsubscribes and diversifying your opt-in sources.';
-      fillPct = 30;
+      box.classList.add('neutral');
+      labelEl.textContent = 'Slow growth — below AU benchmark';
+      detailEl.textContent = 'Your list is growing, but below the AU benchmark of 2–5% per month. Consider adding more signup touchpoints or reviewing your lead magnet.';
     } else if (rate <= 5) {
-      cssClass = 'positive';
-      label = 'Healthy Growth — On Benchmark';
-      msg = 'Your growth rate of ' + rateRounded + '% is within the AU healthy range of 2–5%. Your list-building strategy is working. Keep it up and look for ways to sustain this pace.';
-      fillPct = Math.min(65, 35 + (rate - 2) * 10);
+      box.classList.add('positive');
+      labelEl.textContent = 'Healthy growth — within AU benchmark range';
+      detailEl.textContent = 'Nice work. A 2–5% monthly growth rate is the AU benchmark for healthy email lists. Keep your content relevant and your acquisition consistent.';
     } else if (rate <= 10) {
-      cssClass = 'positive';
-      label = 'Strong Growth — Above Benchmark';
-      msg = 'Your growth rate of ' + rateRounded + '% is above the AU average. This is strong performance — make sure your email content quality keeps pace with subscriber volume to maintain engagement.';
-      fillPct = Math.min(85, 65 + (rate - 5) * 4);
+      box.classList.add('positive');
+      labelEl.textContent = 'Strong growth — above AU benchmark';
+      detailEl.textContent = 'Your list is growing faster than the AU benchmark. Make sure your welcome sequence and content are ready to handle the volume and keep new subscribers engaged.';
     } else {
-      cssClass = 'positive';
-      label = 'Exceptional Growth';
-      msg = rateRounded + '% growth is exceptional. At this rate, focus on list quality: ensure new subscribers are genuinely engaged and your content is converting. High growth can mask low engagement if left unchecked.';
-      fillPct = 95;
+      box.classList.add('positive');
+      labelEl.textContent = 'Exceptional growth — well above benchmark';
+      detailEl.textContent = 'Outstanding list growth. At this rate, focus on list quality and engagement — a fast-growing list with low open rates can hurt your deliverability over time.';
     }
 
-    resultEl.classList.add(cssClass);
-    fillEl.classList.add(cssClass);
-    labelEl.textContent = label;
-    valueEl.textContent = (rate >= 0 ? '+' : '') + rateRounded + '%';
-    msgEl.textContent = msg;
-    fillEl.style.width = fillPct + '%';
-    resultEl.style.display = 'block';
-    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   function handleOptIn(e) {
     e.preventDefault();
-    var email = document.getElementById('optin-email').value;
+    var email = document.getElementById('optin-email').value.trim();
     var consent = document.getElementById('consent').checked;
-    if (!consent) return;
+    var errorEl = document.getElementById('optin-error');
+    var successEl = document.getElementById('optin-success');
+    var form = document.getElementById('optin-form');
+
+    if (!consent) {
+      errorEl.classList.add('show');
+      return;
+    }
+    errorEl.classList.remove('show');
+
+    var btn = form.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
 
     var formData = new FormData();
     formData.append('fields[email]', email);
+    formData.append('ml-submit', '1');
+    formData.append('anticsrf', 'true');
 
     fetch('https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe', {
       method: 'POST',
-      body: formData,
-      mode: 'no-cors'
-    }).then(function() {
-      document.getElementById('optin-form').style.display = 'none';
-      document.getElementById('optin-success').style.display = 'block';
-    }).catch(function() {
-      document.getElementById('optin-form').style.display = 'none';
-      document.getElementById('optin-success').style.display = 'block';
+      body: formData
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      form.style.display = 'none';
+      successEl.classList.add('show');
+    })
+    .catch(function() {
+      form.style.display = 'none';
+      successEl.classList.add('show');
     });
   }
 </script>
