@@ -621,6 +621,7 @@
   }
 
   function calculate() {
+    if (typeof gtag === "function") { gtag("event", "calculator_submit", {calculator_name: "list_growth_calculator", page_title: document.title}); }
     var startingRaw = document.getElementById('starting-subs').value.trim();
     var newRaw = document.getElementById('new-subs').value.trim();
     var unsubRaw = document.getElementById('unsubs').value.trim();
